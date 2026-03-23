@@ -6,10 +6,10 @@ import { Building2, BedDouble, CheckCircle, XCircle } from 'lucide-react'
 
 export default function HotelStats() {
   const { data: rooms, isLoading: roomsLoading, isError: roomsError } = useRooms()
-  //const { data: floors, isLoading: floorsLoading, isError: floorsError } = useFloors()
+  const { data: floors, isLoading: floorsLoading, isError: floorsError } = useFloors()
 
-  const isLoading = roomsLoading
-  const isError = roomsError
+  const isLoading = roomsLoading || floorsLoading
+  const isError = roomsError || floorsError
 
   if (isLoading) {
     return (
@@ -29,14 +29,17 @@ export default function HotelStats() {
     )
   }
 
-  const totalRooms = rooms?.length ?? 0
-  const availableRooms = rooms?.filter((r) => r.status === 'available').length ?? 0
-  const occupiedRooms = rooms?.filter((r) => r.status === 'occupied').length ?? 0
+  const roomList = rooms?.data ?? []
+  const totalRooms = rooms?.meta?.total ?? roomList.length
+  const totalFloors = floors?.length ?? 0
+  const availableRooms = roomList.filter((r) => r.status === 'available').length
+  const occupiedRooms = roomList.filter((r) => r.status === 'occupied').length
 
   const stats = [
     {
       icon: Building2,
       label: 'Total Floors',
+      value: totalFloors,
       color: 'text-blue-500',
       bg: 'bg-blue-50',
     },

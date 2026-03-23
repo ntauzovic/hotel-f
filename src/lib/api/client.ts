@@ -8,23 +8,25 @@ const apiClient = axios.create({
   },
 })
 
-// Request interceptor — dodaje auth token na svaki request automatski
+// Request interceptor — dodaje auth token (samo na klijentu, ne serveru)
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token')
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
     }
     return config
   },
   (error) => Promise.reject(error)
 )
 
-// Response interceptor — hvata 401 i preusmjerava na login
+// Response interceptor — hvata 401 i preusmjerava na login (samo na klijentu)
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (typeof window !== 'undefined' && error.response?.status === 401) {
       localStorage.removeItem('token')
       window.location.href = '/login'
     }

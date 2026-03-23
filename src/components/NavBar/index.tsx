@@ -5,9 +5,9 @@ import { LogIn } from 'lucide-react'
 export default function NavBar() {
   return (
     <nav className="home-nav">
-      <span className="home-nav-logo font-cormorant">
+      <Link href="/" className="home-nav-logo font-cormorant">
         Hotel <span className="home-nav-gold">Costa Dorada</span>
-      </span>
+      </Link>
       <div className="home-nav-right">
         <div className="home-nav-links hidden md:flex">
           {['Rooms', 'Guests', 'Reservations', 'Floors'].map((item) => (
