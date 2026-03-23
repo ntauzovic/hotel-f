@@ -28,7 +28,7 @@ export default function Hero() {
           <Link href="/dashboard/reservations" className="btn-primary">
             View Reservations <ArrowRight size={14} className="btn-arrow" />
           </Link>
-          <Link href="/dashboard/rooms" className="btn-outline">
+          <Link href="/rooms" className="btn-outline">
             Browse Rooms <ArrowRight size={14} className="btn-arrow" />
           </Link>
         </div>

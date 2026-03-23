@@ -11,7 +11,7 @@ export default function NavBar() {
       <div className="home-nav-right">
         <div className="home-nav-links hidden md:flex">
           {['Rooms', 'Guests', 'Reservations', 'Floors'].map((item) => (
-            <Link key={item} href={`/dashboard/${item.toLowerCase()}`} className="nav-lnk">
+            <Link key={item} href={`/${item.toLowerCase()}`} className="nav-lnk">
               {item}
             </Link>
           ))}

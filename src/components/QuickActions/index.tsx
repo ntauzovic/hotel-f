@@ -7,7 +7,7 @@ const quickActions = [
     icon: BedDouble,
     title: 'Manage Rooms',
     description: 'View, add and update hotel rooms across all floors.',
-    href: '/dashboard/rooms',
+    href: '/rooms',
   },
   {
     icon: Users,
