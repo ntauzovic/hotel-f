@@ -19,22 +19,30 @@ export type PaginatedResponse<T> = {
 
 export type Room = {
   id: number
-  number: string
-  floor_id: number
-  type: 'single' | 'double' | 'suite'
-  status: 'available' | 'occupied' | 'maintenance'
+  name: string
+  type: 'single' | 'double' | 'suite' | 'apartment'
+  description?: string
   price_per_night: number
-  images: RoomImage[]
-  floor?: Floor
+  capacity: number
+  floor: number
+  is_available: boolean
+  status: 'available' | 'occupied' | 'maintenance'
+  amenities: string[]
+  images: string[]
   created_at: string
   updated_at: string
 }
 
-export type RoomImage = {
-  id: number
-  room_id: number
-  url: string
-  is_primary: boolean
+export type PaginationMeta = {
+  current_page: number
+  last_page: number
+  per_page: number
+  total: number
+}
+
+export type PaginatedRooms = {
+  data: Room[]
+  meta: PaginationMeta
 }
 
 // ─── Floor ───────────────────────────────────────────────────────────────────

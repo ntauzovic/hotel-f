@@ -5,7 +5,7 @@ import { QUERY_KEYS } from '@/constants'
 export function useRooms() {
   return useQuery({
     queryKey: QUERY_KEYS.ROOMS,
-    queryFn: getRooms,
+    queryFn: () => getRooms(),
   })
 }
 

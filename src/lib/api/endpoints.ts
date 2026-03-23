@@ -1,11 +1,14 @@
 import apiClient from './client'
-import type { Room, Floor, Guest, Reservation } from '@/types'
+import type { Room, Floor, Guest, Reservation, PaginatedRooms } from '@/types'
 
 // ─── Rooms ───────────────────────────────────────────────────────────────────
 
-export const getRooms = async (): Promise<Room[]> => {
-  const { data } = await apiClient.get('/rooms')
-  return data.data ?? data
+export const getRooms = async (params?: Record<string, string>): Promise<PaginatedRooms> => {
+  const query = params ? '?' + new URLSearchParams(params).toString() : ''
+  const { data } = await apiClient.get(`/rooms${query}`)
+  console.log(data)
+
+  return data
 }
 
 export const getRoom = async (id: number): Promise<Room> => {
