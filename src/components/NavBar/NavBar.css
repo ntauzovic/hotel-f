@@ -65,3 +65,73 @@
 .login-btn:hover {
   background: #0284c7;
 }
+
+/* ─── Authenticated user area ─────────────────────────────────────────────── */
+
+.nav-user-area {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.18);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  color: #d4af37;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nav-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav-user-name {
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.3rem;
+  background: transparent;
+  color: #cbd5e1;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.logout-btn:hover {
+  background: rgba(212, 175, 55, 0.08);
+  color: #d4af37;
+  border-color: #d4af37;
+}
