@@ -1,3 +1,13 @@
+// ─── Auth ─────────────────────────────────────────────────────────────────────
+
+export type User = {
+  id: number
+  name: string
+  email: string
+  avatar?: string
+  created_at: string
+}
+
 // ─── API Response wrapper ────────────────────────────────────────────────────
 
 export type ApiResponse<T> = {

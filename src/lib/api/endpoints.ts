@@ -1,5 +1,34 @@
+import axios from 'axios'
 import apiClient from './client'
-import type { Room, Floor, Guest, Reservation, PaginatedRooms } from '@/types'
+import type { Room, Floor, Guest, Reservation, PaginatedRooms, User } from '@/types'
+
+const getCsrfCookie = () =>
+  axios.get(`${process.env.NEXT_PUBLIC_API_URL?.replace('/api', '')}/sanctum/csrf-cookie`, {
+    withCredentials: true,
+  })
+
+// ─── Auth ─────────────────────────────────────────────────────────────────────
+
+export const loginApi = async (email: string, password: string): Promise<User> => {
+  await getCsrfCookie()
+  const { data } = await apiClient.post('/auth/login', { email, password })
+  return data
+}
+
+export const registerApi = async (name: string, email: string, password: string): Promise<User> => {
+  await getCsrfCookie()
+  const { data } = await apiClient.post('/auth/register', { name, email, password })
+  return data
+}
+
+export const logoutApi = async (): Promise<void> => {
+  await apiClient.post('/auth/logout')
+}
+
+export const getMeApi = async (): Promise<User> => {
+  const { data } = await apiClient.get('/auth/me')
+  return data
+}
 
 // ─── Rooms ───────────────────────────────────────────────────────────────────
 
