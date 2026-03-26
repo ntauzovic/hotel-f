@@ -1,6 +1,7 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -126,4 +127,142 @@
   html {
     @apply font-sans;
   }
+}
+
+/* ─── Brand colours ──────────────────────────────────────────────────────── */
+@theme {
+  --color-navy: #0c1a2e;
+  --color-navy-dark: #080f1a;
+  --color-navy-hover: #1a2f4e;
+  --color-gold: #d4af37;
+  --color-gold-light: #e2c04a;
+  --color-cream: #f5efe6;
+  --color-cream-light: #faf9f7;
+  --color-warm-border: #d1c4b0;
+  --color-cream-border: #e5ddd2;
+}
+
+/* ─── Font utility ───────────────────────────────────────────────────────── */
+@utility font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ─── Hero keyframes & animation utilities ───────────────────────────────── */
+@keyframes slowZoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.13);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes spinAnim {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility hero-bg {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+@utility anim-1 {
+  opacity: 0;
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+@utility anim-2 {
+  opacity: 0;
+  animation: fadeUp 1s ease 0.5s forwards;
+}
+@utility anim-3 {
+  opacity: 0;
+  animation: fadeUp 1s ease 0.7s forwards;
+}
+@utility anim-4 {
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+@utility anim-5 {
+  opacity: 0;
+  animation: fadeUp 1s ease 1.1s forwards;
+}
+@utility anim-6 {
+  opacity: 0;
+  animation: fadeUp 1s ease 1.5s forwards;
+}
+@utility scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #d4af37, transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ─── Spinner utilities ──────────────────────────────────────────────────── */
+@utility auth-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spinAnim 0.7s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+@utility callback-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #d1c4b0;
+  border-top-color: #d4af37;
+  border-radius: 50%;
+  animation: spinAnim 0.7s linear infinite;
+}
+
+/* ─── Custom checkbox (RoomFilters) ──────────────────────────────────────── */
+.filter-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.filter-checkbox:checked {
+  background: #d4af37;
+  border-color: #d4af37;
+}
+.filter-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 6px;
+  height: 11px;
+  border: 2px solid #080f1a;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
 }

@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import useAuthStore from '@/store/useAuthStore'
 import { getMeApi } from '@/lib/api/endpoints'
-import './callback.css'
 
 export default function AuthCallback() {
   const router = useRouter()
@@ -23,9 +22,9 @@ export default function AuthCallback() {
   }, [])
 
   return (
-    <div className="callback-page">
+    <div className="bg-cream flex h-screen flex-col items-center justify-center gap-4">
       <div className="callback-spinner" />
-      <p className="callback-text">Logging in&hellip;</p>
+      <p className="text-navy text-[0.9rem] tracking-[0.08em]">Logging in&hellip;</p>
     </div>
   )
 }

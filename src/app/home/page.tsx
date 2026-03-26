@@ -1,4 +1,3 @@
-import './home.css'
 import NavBar from '@/components/NavBar'
 import Hero from '@/components/Hero'
 import StatsBar from '@/components/StatsBar'
@@ -10,7 +9,7 @@ import Footer from '@/components/Footer'
 
 export default function HomePage() {
   return (
-    <div className="home-wrapper">
+    <div className="bg-[#0d0d08] text-white">
       <NavBar />
       <Hero />
       <StatsBar />
