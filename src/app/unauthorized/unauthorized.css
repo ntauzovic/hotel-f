@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.unauth-page {
+  display: flex;
+  min-height: 100vh;
+  background: #f5efe6;
+}
+
+/* ─── Left panel (image) ─────────────────────────────────────────────────── */
+
+.unauth-panel-image {
+  display: none;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #0c1a2e;
+}
+
+@media (min-width: 900px) {
+  .unauth-panel-image {
+    display: flex;
+  }
+}
+
+.unauth-panel-image-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.55;
+}
+
+.unauth-panel-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12, 26, 46, 0.82) 0%, rgba(12, 26, 46, 0.45) 100%);
+}
+
+.unauth-panel-image-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3.5rem;
+  width: 100%;
+}
+
+.unauth-panel-brand {
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.unauth-panel-brand-gold {
+  color: #d4af37;
+}
+
+.unauth-panel-tagline {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+
+.unauth-panel-divider {
+  width: 3rem;
+  height: 1px;
+  background: #d4af37;
+  margin-bottom: 1.4rem;
+}
+
+.unauth-panel-quote {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  max-width: 26rem;
+}
+
+/* ─── Right panel (content) ──────────────────────────────────────────────── */
+
+.unauth-panel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 3rem 2.5rem;
+  background: #f5efe6;
+}
+
+@media (min-width: 900px) {
+  .unauth-panel-content {
+    width: 480px;
+    flex: none;
+  }
+}
+
+.unauth-inner {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+/* ─── Lock icon ──────────────────────────────────────────────────────────── */
+
+.unauth-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border: 1.5px solid #d1c4b0;
+  margin-bottom: 2rem;
+}
+
+.unauth-icon {
+  width: 28px;
+  height: 28px;
+  color: #d4af37;
+}
+
+/* ─── Text ───────────────────────────────────────────────────────────────── */
+
+.unauth-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin-bottom: 0.6rem;
+}
+
+.unauth-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #0c1a2e;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+
+.unauth-description {
+  font-size: 0.88rem;
+  color: #6b7280;
+  line-height: 1.65;
+  margin-bottom: 2.2rem;
+}
+
+.unauth-divider {
+  width: 3rem;
+  height: 1px;
+  background: #d1c4b0;
+  margin-bottom: 2rem;
+}
+
+/* ─── Actions ────────────────────────────────────────────────────────────── */
+
+.unauth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.unauth-btn-primary {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  background: #0c1a2e;
+  color: #fff;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.unauth-btn-primary:hover {
+  background: #1a2f4e;
+  box-shadow: 0 4px 16px rgba(12, 26, 46, 0.18);
+}
+
+.unauth-btn-secondary {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  background: transparent;
+  color: #0c1a2e;
+  border: 1.5px solid #d1c4b0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.unauth-btn-secondary:hover {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
