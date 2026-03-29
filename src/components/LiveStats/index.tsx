@@ -1,10 +1,13 @@
+'use client'
+
 import HotelStats from '@/components/common/HotelStats'
+import FadeInView from '@/components/ui/FadeInView'
 
 export default function LiveStats() {
   return (
     <section className="bg-cream px-6 py-20">
       <div className="mx-auto max-w-[1100px]">
-        <div className="mb-12 text-center">
+        <FadeInView className="mb-12 text-center">
           <p className="mb-3 text-[0.65rem] font-bold tracking-[0.3em] text-slate-500 uppercase">
             Live Data
           </p>
@@ -12,7 +15,7 @@ export default function LiveStats() {
             Hotel at a <em className="text-navy">Glance</em>
           </h2>
           <div className="bg-gold mx-auto h-px w-[50px]" />
-        </div>
+        </FadeInView>
         <HotelStats />
       </div>
     </section>
