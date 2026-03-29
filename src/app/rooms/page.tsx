@@ -3,6 +3,7 @@ import NavBar from '@/components/NavBar'
 import RoomCard from '@/components/RoomCard'
 import RoomFilters from '@/components/RoomFilters'
 import Pagination from '@/components/Pagination'
+import StaggerGroup from '@/components/ui/StaggerGroup'
 import { getRooms } from '@/lib/api/endpoints'
 
 export default async function RoomsPage({
@@ -73,18 +74,18 @@ export default async function RoomsPage({
             </div>
           )}
 
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8">
-            {rooms.length > 0 ? (
-              rooms.map((room) => <RoomCard key={room.id} room={room} />)
-            ) : (
-              <div className="col-span-full px-8 py-24 text-center">
-                <p className="font-cormorant text-navy mb-3 text-[2rem] font-light">
-                  No rooms found
-                </p>
-                <p className="text-[0.95rem] text-slate-500">Try adjusting your filters.</p>
-              </div>
-            )}
-          </div>
+          {rooms.length > 0 ? (
+            <StaggerGroup className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8">
+              {rooms.map((room) => (
+                <RoomCard key={room.id} room={room} />
+              ))}
+            </StaggerGroup>
+          ) : (
+            <div className="px-8 py-24 text-center">
+              <p className="font-cormorant text-navy mb-3 text-[2rem] font-light">No rooms found</p>
+              <p className="text-[0.95rem] text-slate-500">Try adjusting your filters.</p>
+            </div>
+          )}
 
           <Suspense>
             <Pagination currentPage={meta.current_page} lastPage={meta.last_page} />
